@@ -1,6 +1,14 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 const Search = () => {
+  const [showMenu, setShowMenu] = useState(false);
+  const toggleMenu = () => {
+    setShowMenu((prev) => !prev);
+  };
+
   return (
     <div className="DMSans  w-full py-4 px-3 flex justify-between items-center">
       <div className="relative max-w-3xl w-full flex justify-center items-center">
@@ -47,23 +55,36 @@ const Search = () => {
           <p className="text-blue-600 font-extrabold text-4xl absolute bottom-3 right-1">
             .
           </p>
-          <p className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-gray-200 text-xs absolute top-7 bg-gray-500 rounded-lg py-1 px-2">
+          <p className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-gray-200 text-xs absolute top-7 bg-gray-500 rounded-lg py-1 px-2 z-20">
             Tooltip
           </p>
         </div>
-        <div className="flex justify-start items-center h-full  gap-2">
-          <div className="rounded-full">
+        <div
+          className="flex relative justify-start items-center h-full gap-2 cursor-pointer bg-white shadow-sm rounded-xl p-2"
+          onClick={toggleMenu}
+        >
+          <div className="rounded-full ">
             <Image
               src="/placeholders/profile-icon.png"
               alt="Profile Icon"
               width={38}
-              className="rounded-full"
+              className="rounded-full cursor-pointer"
               height={38}
             />
           </div>
           <div className="flex flex-col justify-start items-start h-full ">
             <p className="text-sm font-semibold">Lmao Hahaha</p>
             <p className="text-gray-500 text-xs">Project Leader</p>
+          </div>
+          <div
+            className={`flex flex-col justify-start items-start gap-1 absolute text-sm py-2 px-4 top-16 left-0 w-full text-left opacity-0  text-gray-700 bg-white border border-gray-300 rounded-md shadow-md transition-opacity duration-200 ${
+              showMenu ? "opacity-100" : "opacity-0 pointer-events-none"
+            }`}
+          >
+            <Link href="">Profile</Link>
+            <Link className="text-red-500" href="">
+              Logout
+            </Link>
           </div>
         </div>
       </div>
