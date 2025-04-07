@@ -28,7 +28,7 @@ const Search = () => {
         />
       </div>
       <div className="flex justify-center items-center gap-4 ">
-        <div className="relative">
+        <div className="relative cursor-pointer group">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -46,6 +46,9 @@ const Search = () => {
           </svg>
           <p className="text-blue-600 font-extrabold text-4xl absolute bottom-3 right-1">
             .
+          </p>
+          <p className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-gray-200 text-xs absolute top-7 bg-gray-500 rounded-lg py-1 px-2">
+            Tooltip
           </p>
         </div>
         <div className="flex justify-start items-center h-full  gap-2">
