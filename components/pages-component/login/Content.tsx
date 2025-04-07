@@ -28,90 +28,110 @@ const LoginContent = (): JSX.Element => {
   return (
     <div className="DMSans bg-white flex justify-between items-center w-full h-full">
       <div className="w-full flex justify-center items-center">
-        <form
-          onSubmit={handleSubmit}
-          className="w-full max-w-sm  flex flex-col justify-between items-center gap-4"
-        >
-          <div className="w-full flex flex-col justify-start items-start">
-            <p className="text-2xl mb-2">Login</p>
-            <p className="text-gray-500">
-              Hi! Welcome back, you&apos;ve been missed.
-            </p>
-          </div>
-          <div className="flex w-full flex-col justify-start items-start gap-5">
-            <label className="w-full">
-              <p className="text-gray-600">Email</p>
-              <input
-                placeholder="Enter your email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="py-3 px-6 bg-gray-200 text-gray-600 rounded-sm w-full focus:outline-none"
-              />
-            </label>
-            <label htmlFor="" className="w-full">
-              <p className="text-gray-600">Password</p>
-              <input
-                placeholder="Enter your password"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="py-3 px-6 bg-gray-200 text-gray-600 rounded-sm w-full focus:outline-none"
-              />
-            </label>
-            {error && <p>{error}</p>}
-            <p className="self-end underline text-blue-600 font-semibold">
-              Forgot Password?
-            </p>
-          </div>
-          <button
-            type="submit"
-            className="py-4 px-6 text-center rounded-md bg-blue-600 text-white w-full"
+        <div className="w-full flex flex-col justify-between h-full items-center max-w-sm">
+          <form
+            onSubmit={handleSubmit}
+            className="w-full flex flex-col justify-between items-center gap-4"
           >
-            Login
-          </button>
-          <div className="flex items-center px-4 py-2 text-sm text-gray-400 w-full">
-            <div className="flex-grow h-px bg-gray-300" />
-            <span className="mx-2 text-gray-400">or</span>
-            <div className="flex-grow h-px bg-gray-300" />
-          </div>
-          <button
-            type="button"
-            className="py-4 px-6 text-center rounded-md bg-white border-2 border-gray-200 text-gray-500 font-semibold gap-2 w-full flex justify-center items-center"
-          >
-            <div className="flex justify-start items-center w-full max-w-60 gap-4">
-              <Image alt="" width={24} height={24} src="/icons/google.png" />
-              <p>Continue with Google</p>
+            <div className="w-full flex flex-col justify-start items-start max-lg:items-center ">
+              <p className="text-2xl mb-2">Login</p>
+              <p className="text-gray-500">
+                Hi! Welcome back, you&apos;ve been missed.
+              </p>
             </div>
-          </button>
+            <div className="flex w-full flex-col justify-start items-start gap-5">
+              <label className="w-full">
+                <p className="text-gray-600">Email</p>
+                <input
+                  placeholder="Enter your email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="py-3 px-6 bg-gray-200 text-gray-600 rounded-sm w-full focus:outline-none"
+                />
+              </label>
+              <label htmlFor="" className="w-full">
+                <p className="text-gray-600">Password</p>
+                <input
+                  placeholder="Enter your password"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="py-3 px-6 bg-gray-200 text-gray-600 rounded-sm w-full focus:outline-none"
+                />
+              </label>
+              {error && <p>{error}</p>}
+              <p className="self-end underline text-blue-600 font-semibold">
+                Forgot Password?
+              </p>
+            </div>
+            <button
+              type="submit"
+              className={`py-4 px-6 text-center rounded-md bg-blue-600 text-white w-full ${
+                !email || !password ? "bg-gray-300 cursor-not-allowed" : ""
+              }`}
+              disabled={!email || !password}
+            >
+              Login
+            </button>
+            <div className="flex items-center px-4 py-2 text-sm text-gray-400 w-full">
+              <div className="flex-grow h-px bg-gray-300" />
+              <span className="mx-2 text-gray-400">or</span>
+              <div className="flex-grow h-px bg-gray-300" />
+            </div>
+          </form>
 
-          <button
-            type="button"
-            className="py-4 px-6 text-center rounded-md bg-white border-2 border-gray-200 text-gray-500 font-semibold gap-4 w-full flex justify-center items-center"
-          >
-            <div className="flex justify-start items-center w-full max-w-60  gap-4">
-              <Image alt="" width={24} height={24} src="/icons/facebook.png" />
-              <p>Continue with Facebook</p>
-            </div>
-          </button>
-          <button
-            type="button"
-            className="py-4 px-6 text-center rounded-md bg-white border-2 border-gray-200 text-gray-500 font-semibold gap-4 w-full flex justify-center items-center"
-          >
-            <div className="flex justify-start items-center w-full max-w-60  gap-4">
-              <Image alt="" width={24} height={24} src="/icons/apple.png" />
-              <p className="">Continue with Apple</p>
-            </div>
-          </button>
+          <div className="w-full  gap-2 flex flex-col justify-center items-center max-lg:flex-row">
+            <button
+              type="button"
+              className="max-lg:py-7 max-lg:px-0 px-6 max-lg:rounded-full text-center rounded-md bg-white border-2 border-gray-200 text-gray-500 font-semibold gap-2 w-full flex justify-center items-center"
+            >
+              <div className="flex justify-start items-center w-full max-w-60 max-lg:justify-center max-lg:items-center gap-4 max-lg:rounded-full max-lg:max-w-max border">
+                <Image
+                  alt=""
+                  width={24}
+                  height={24}
+                  src="/icons/google.png"
+                  className="max-lg:rounded-full"
+                />
+                <p className="max-lg:hidden">Continue with Google</p>
+              </div>
+            </button>
+
+            <button
+              type="button"
+              className="py-4 px-6 text-center rounded-md bg-white border-2 border-gray-200 text-gray-500 font-semibold gap-4 w-full flex justify-center items-center"
+            >
+              <div className="flex justify-start items-center w-full max-w-60  gap-4">
+                <Image
+                  alt=""
+                  width={24}
+                  height={24}
+                  src="/icons/facebook.png"
+                />
+                <p>Continue with Facebook</p>
+              </div>
+            </button>
+            <button
+              type="button"
+              className="py-4 px-6 text-center rounded-md bg-white border-2 border-gray-200 text-gray-500 font-semibold gap-4 w-full flex justify-center items-center"
+            >
+              <div className="flex justify-start items-center w-full max-w-60  gap-4">
+                <Image alt="" width={24} height={24} src="/icons/apple.png" />
+                <p className="">Continue with Apple</p>
+              </div>
+            </button>
+          </div>
+
           <p className="text-gray-500 mt-4">
             Don&apos;t have an account?{" "}
             <span className="text-blue-600 underline font-semibold">
               Register
             </span>
           </p>
-        </form>
+        </div>
       </div>
-      <div className="w-full h-full bg-blue-600 text-white">
+      <div className="w-full h-full bg-blue-600 text-white max-lg:hidden">
         <Carousel />
       </div>
     </div>
