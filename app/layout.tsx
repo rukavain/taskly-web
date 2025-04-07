@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Sidebar from "@/components/common/Sidebar/Sidebar";
-
+import Search from "@/components/common/Search/Search";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -27,10 +27,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`bg-gray-100 h-svh flex justify-start items-start ${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`bg-gray-100 h-svh w-full flex justify-start items-start ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Sidebar />
-        {children}
+        <div className="flex justify-start items-start h-full w-full">
+          <Sidebar />
+          <div className="flex flex-col justify-start items-start w-full">
+            <Search /> {children}
+          </div>
+        </div>
       </body>
     </html>
   );

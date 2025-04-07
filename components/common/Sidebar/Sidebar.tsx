@@ -11,7 +11,7 @@ const Sidebar = () => {
       </div>
       <div className="flex flex-col justify-start items-start w-full">
         <ul className="flex flex-col gap-1 py-4 w-full">
-          <li className="text-gray-500 flex justify-start items-center gap-3 hover:bg-blue-100 hover:text-blue-600 transition-all ease-in-out duration-300 w-full px-4 py-2 cursor-pointer">
+          <li className="text-gray-500 flex justify-start items-center gap-4 hover:bg-blue-100 hover:text-blue-600 transition-all ease-in-out duration-300 w-full px-4 py-2 cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="28"
@@ -31,7 +31,7 @@ const Sidebar = () => {
             </svg>
             <p className="text-xl">Home</p>
           </li>
-          <li className="text-gray-500 flex justify-start  items-center gap-3 hover:bg-blue-100 hover:text-blue-600 transition-all ease-in-out duration-300 w-full px-4 py-2 cursor-pointer">
+          <li className="text-gray-500 flex justify-start  items-center gap-5 hover:bg-blue-100 hover:text-blue-600 transition-all ease-in-out duration-300 w-full px-4 py-2 cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -50,7 +50,7 @@ const Sidebar = () => {
             </svg>
             <p className="text-xl">Projects</p>
           </li>
-          <li className="text-gray-500 flex justify-start items-center gap-3 hover:bg-blue-100 hover:text-blue-600 transition-all ease-in-out duration-300 w-full px-4 py-2 cursor-pointer">
+          <li className="text-gray-500 flex justify-start items-center gap-5 hover:bg-blue-100 hover:text-blue-600 transition-all ease-in-out duration-300 w-full px-4 py-2 cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -70,7 +70,7 @@ const Sidebar = () => {
             </svg>
             <p className="text-xl">Team</p>
           </li>
-          <li className="text-gray-500 flex justify-start items-center gap-3 hover:bg-blue-100 hover:text-blue-600 transition-all ease-in-out duration-300 w-full px-4 py-2 cursor-pointer">
+          <li className="text-gray-500 flex justify-start items-center gap-5 hover:bg-blue-100 hover:text-blue-600 transition-all ease-in-out duration-300 w-full px-4 py-2 cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -89,7 +89,7 @@ const Sidebar = () => {
             </svg>
             <p className="text-xl">Messages</p>
           </li>
-          <li className="text-gray-500 flex justify-start items-center gap-3 hover:bg-blue-100 hover:text-blue-600 transition-all ease-in-out duration-300 w-full px-4 py-2 cursor-pointer">
+          <li className="text-gray-500 flex justify-start items-center gap-5 hover:bg-blue-100 hover:text-blue-600 transition-all ease-in-out duration-300 w-full px-4 py-2 cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
