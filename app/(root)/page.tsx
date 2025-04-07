@@ -1,9 +1,11 @@
-import Image from "next/image";
-
-export default function Home() {
+import React from "react";
+import Content from "@/components/pages-component/dashboard/Content";
+const page = () => {
   return (
-    <>
-      <h1>Home</h1>
-    </>
+    <div>
+      <Content />
+    </div>
   );
-}
+};
+
+export default page;

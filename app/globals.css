@@ -20,6 +20,12 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  user-select: none;
+}
+
+ img {
+  user-select: none;
+  pointer-events: none;
 }
 
 @layer utilities {

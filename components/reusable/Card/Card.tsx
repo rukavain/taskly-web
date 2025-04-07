@@ -1,12 +1,6 @@
 import React from "react";
 
-const Card = (
-  icon: SVGAElement,
-  title: string,
-  description: string,
-  assignees: string,
-  date: string
-) => {
+const Card = () => {
   return (
     <div>
       <h1>card</h1>
