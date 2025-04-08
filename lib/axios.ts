@@ -2,21 +2,19 @@ import axios, { AxiosInstance, InternalAxiosRequestConfig } from 'axios';
 
 const axiosInstance: AxiosInstance = axios.create({
   baseURL: "http://localhost:8000/",
-  withCredentials: true, // required for session cookies
+  withCredentials: true, 
   headers: {
     "Content-Type": "application/x-www-form-urlencoded",
   },
 });
 
-// Use session_id instead of token
+
 axiosInstance.interceptors.request.use((config: InternalAxiosRequestConfig) => {
   const sessionId = localStorage.getItem("session_id");
   console.log(`session_id: ${sessionId}`);
-  
   if (sessionId) {
-    config.headers["X-Session-ID"] = sessionId; // or use a custom header your backend accepts
+    config.headers["X-Session-ID"] = sessionId;
   }
-
   return config;
 });
 

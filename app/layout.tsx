@@ -30,8 +30,8 @@ export default function RootLayout({
         className={`bg-gray-100 h-svh w-full ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <Toaster />
       </body>
-      <Toaster />
     </html>
   );
 }
