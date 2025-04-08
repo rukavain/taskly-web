@@ -23,7 +23,7 @@ axiosInstance.interceptors.request.use((config: InternalAxiosRequestConfig) => {
 export const loginUser = async (
   email: string,
   password: string
-): Promise<any> => {
+): Promise<void> => {
   const formData = new FormData();
   formData.append("email", email);
   formData.append("password", password);

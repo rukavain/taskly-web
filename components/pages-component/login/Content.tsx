@@ -6,9 +6,11 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { loginUser } from "@/lib/axios";
 import Carousel from "@/components/pages-component/login/component/Carousel";
+import { useToast } from "@/hooks/use-toast";
 
 const LoginContent = (): JSX.Element => {
   const router = useRouter();
+  const { toast } = useToast();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string>("");
@@ -18,6 +20,9 @@ const LoginContent = (): JSX.Element => {
     try {
       await loginUser(email, password);
       console.log("logged in");
+      toast({
+        description: "Successfully logged in.",
+      });
       router.push("/");
     } catch (error) {
       setError("Invalid credentials. Please try again.");
@@ -84,9 +89,9 @@ const LoginContent = (): JSX.Element => {
           <div className="w-full  gap-2 flex flex-col justify-center items-center max-lg:flex-row">
             <button
               type="button"
-              className="max-lg:py-7 max-lg:px-0 px-6 max-lg:rounded-full text-center rounded-md bg-white border-2 border-gray-200 text-gray-500 font-semibold gap-2 w-full flex justify-center items-center"
+              className="py-4 px-6 text-center rounded-md bg-white border-2 border-gray-200 text-gray-500 font-semibold gap-4 w-full flex justify-center items-center"
             >
-              <div className="py-4 px-6 text-center rounded-md bg-white  text-gray-500 font-semibold gap-4 w-full flex justify-center items-center">
+              <div className="flex justify-start items-center w-full max-w-60  gap-4">
                 <Image
                   alt=""
                   width={24}

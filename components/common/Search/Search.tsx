@@ -5,7 +5,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { logoutUser } from "@/lib/axios";
 import { useRouter } from "next/navigation";
+import {
+  AlertDialog,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+import { useToast } from "@/hooks/use-toast";
+
 const Search = () => {
+  const { toast } = useToast();
   const router = useRouter();
   const [showMenu, setShowMenu] = useState(false);
   const toggleMenu = () => {
@@ -17,6 +30,9 @@ const Search = () => {
     try {
       logoutUser();
       console.log(`session_id logged out`);
+      toast({
+        description: "Successfully logged out.",
+      });
       router.push("auth/login");
     } catch (error) {
       console.log(error);
@@ -96,9 +112,28 @@ const Search = () => {
             }`}
           >
             <Link href="">Profile</Link>
-            <Link className="text-red-500" href="" onClick={handleLogout}>
-              Logout
-            </Link>
+            <AlertDialog>
+              <AlertDialogTrigger className="text-red-500 w-full text-left">
+                Logout
+              </AlertDialogTrigger>
+              <AlertDialogContent>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                  <AlertDialogDescription>
+                    This action cannot be undone. This will permanently delete
+                    your account and remove your data from our servers.
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <AlertDialogCancel>Cancel</AlertDialogCancel>
+                  <AlertDialogCancel>
+                    <button className="text-red-600" onClick={handleLogout}>
+                      Logout
+                    </button>
+                  </AlertDialogCancel>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
           </div>
         </div>
       </div>

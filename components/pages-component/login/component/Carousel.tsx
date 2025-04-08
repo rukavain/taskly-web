@@ -39,7 +39,7 @@ const Carousel = () => {
           key={slides[index].image}
           src={slides[index].image}
           alt={`Slide ${index + 1}`}
-          className="object-cover border border-red-600"
+          className="object-cover"
           height={500}
           width={500}
           initial={{ opacity: 0 }}
