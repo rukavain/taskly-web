@@ -3,10 +3,24 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { logoutUser } from "@/lib/axios";
+import { useRouter } from "next/navigation";
 const Search = () => {
+  const router = useRouter();
   const [showMenu, setShowMenu] = useState(false);
   const toggleMenu = () => {
     setShowMenu((prev) => !prev);
+  };
+
+  const handleLogout = (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      logoutUser();
+      console.log(`session_id logged out`);
+      router.push("auth/login");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -82,7 +96,7 @@ const Search = () => {
             }`}
           >
             <Link href="">Profile</Link>
-            <Link className="text-red-500" href="">
+            <Link className="text-red-500" href="" onClick={handleLogout}>
               Logout
             </Link>
           </div>
