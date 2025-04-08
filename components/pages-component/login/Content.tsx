@@ -29,7 +29,8 @@ const LoginContent = (): JSX.Element => {
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
-      await loginUser(data.email, data.password);
+      const response = await loginUser(data.email, data.password);
+      localStorage.setItem("user", JSON.stringify(response));
       console.log("logged in");
       toast({
         description: "Successfully logged in.",

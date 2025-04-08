@@ -39,6 +39,11 @@ const Search = () => {
     }
   };
 
+  const userResponse = localStorage.getItem("user");
+
+  const user = userResponse && JSON.parse(userResponse);
+  console.log(user);
+
   return (
     <div className="DMSans  w-full py-4 px-3 flex justify-between items-center">
       <div className="relative max-w-3xl w-full flex justify-center items-center">

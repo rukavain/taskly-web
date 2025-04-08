@@ -140,7 +140,9 @@ const Sidebar = () => {
           <path d="M5 12h14" />
           <path d="M12 5v14" />
         </svg>
-        <p className="text-sm">Add New</p>
+        <a href="projects/create/" className="text-sm">
+          Add New
+        </a>
       </button>
     </nav>
   );
