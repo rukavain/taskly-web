@@ -7,7 +7,7 @@ export default function Content(): JSX.Element {
   const router = useRouter();
 
   useEffect(() => {
-    if (!localStorage.getItem("access_token")) {
+    if (!localStorage.getItem("session_id")) {
       router.push("/auth/login");
     }
   }, [router]);

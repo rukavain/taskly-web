@@ -86,7 +86,7 @@ const LoginContent = (): JSX.Element => {
               type="button"
               className="max-lg:py-7 max-lg:px-0 px-6 max-lg:rounded-full text-center rounded-md bg-white border-2 border-gray-200 text-gray-500 font-semibold gap-2 w-full flex justify-center items-center"
             >
-              <div className="flex justify-start items-center w-full max-w-60 max-lg:justify-center max-lg:items-center gap-4 max-lg:rounded-full max-lg:max-w-max border">
+              <div className="py-4 px-6 text-center rounded-md bg-white  text-gray-500 font-semibold gap-4 w-full flex justify-center items-center">
                 <Image
                   alt=""
                   width={24}

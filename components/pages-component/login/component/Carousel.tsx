@@ -33,13 +33,13 @@ const Carousel = () => {
     return () => clearInterval(interval);
   }, []);
   return (
-    <div className="w-full max-w-md  flex flex-col justify-center items-center mx-auto  rounded-lg h-full">
+    <div className="w-full max-w-md flex flex-col justify-center items-center mx-auto  rounded-lg h-full">
       <AnimatePresence mode="wait">
         <MotionImage
           key={slides[index].image}
           src={slides[index].image}
           alt={`Slide ${index + 1}`}
-          className="object-cover"
+          className="object-cover border border-red-600"
           height={500}
           width={500}
           initial={{ opacity: 0 }}
