@@ -1,7 +1,7 @@
+import { StaticImageData } from "next/image";
 import React from "react";
 
-const AdminNavbar = () => {
-  const profile = [1, 2, 3, 4, 5, 6];
+const AvatarGroup: React.FC<{ profile: StaticImageData[] }> = ({ profile }) => {
   const maxVisibleProfiles = 4;
   return (
     <div className="flex items-center">
@@ -25,4 +25,4 @@ const AdminNavbar = () => {
   );
 };
 
-export default AdminNavbar;
+export default AvatarGroup;

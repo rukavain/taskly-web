@@ -1,5 +1,4 @@
-import image from "@/components/constants/image";
-import { div } from "framer-motion/client";
+import AvatarGroup from "@/components/reusable/AvatarGroup/AvatarGroup";
 import Image, { StaticImageData } from "next/image";
 import React from "react";
 import Progress from "../Progress/Progress";
@@ -8,7 +7,7 @@ interface ProjectDataType {
   project_name: string;
   deadline: string;
   description: string;
-  members_image: StaticImageData;
+  members_image: StaticImageData[];
   project_icon: StaticImageData;
   progress: number;
 }
@@ -61,11 +60,10 @@ const ProjectCard: React.FC<{ data: ProjectDataType[] }> = ({ data }) => {
             <div className="w-full flex justify-between items-start mt-2">
               <div>
                 <p>Teams:</p>
-                <div className="flex justify-start items-start">
-                    
-                </div>
+                <div className="flex justify-start items-start"></div>
               </div>
-              <div>
+              <div className="flex justify-between items-center">
+                <AvatarGroup profile={item.members_image} />
                 <Progress score={item.progress} bigger={false} />
               </div>
             </div>

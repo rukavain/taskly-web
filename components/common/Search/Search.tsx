@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import { useToast } from "@/hooks/use-toast";
 
-const Search = async () => {
+const Search = () => {
   const { toast } = useToast();
   const router = useRouter();
   const [showMenu, setShowMenu] = useState(false);
@@ -39,7 +39,7 @@ const Search = async () => {
     }
   };
 
-  const userResponse = await localStorage.getItem("user");
+  const userResponse = localStorage.getItem("user");
 
   const user = userResponse && JSON.parse(userResponse);
   console.log(user);

@@ -20,7 +20,7 @@ interface ProjectDataType {
   project_name: string;
   deadline: string;
   description: string;
-  members_image: StaticImageData;
+  members_image: StaticImageData[];
   project_icon: StaticImageData;
   progress: number;
 }
@@ -69,7 +69,20 @@ const projectData: ProjectDataType[] = [
     deadline: "14 February 2025",
     description:
       "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum has been the industry",
-    members_image: image.profile.profile,
+    members_image: [
+      image.profile.profile,
+      image.profile.profile,
+      image.profile.profile,
+      image.profile.profile,
+      image.profile.profile,
+      image.profile.profile,
+      image.profile.profile,
+      image.profile.profile,
+      image.profile.profile,
+      image.profile.profile,
+      image.profile.profile,
+      image.profile.profile,
+    ],
     project_icon: image.profile.profile,
     progress: 20,
   },
@@ -78,7 +91,20 @@ const projectData: ProjectDataType[] = [
     deadline: "14 February 2025",
     description:
       "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum has been the industry",
-    members_image: image.profile.profile,
+    members_image: [
+      image.profile.profile,
+      image.profile.profile,
+      image.profile.profile,
+      image.profile.profile,
+      image.profile.profile,
+      image.profile.profile,
+      image.profile.profile,
+      image.profile.profile,
+      image.profile.profile,
+      image.profile.profile,
+      image.profile.profile,
+      image.profile.profile,
+    ],
     project_icon: image.profile.profile,
     progress: 50,
   },
@@ -88,7 +114,20 @@ const projectData: ProjectDataType[] = [
     deadline: "14 February 2025",
     description:
       "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum has been the industry dummy text ever since the 1500s. Lorem Ipsum has been the industry",
-    members_image: image.profile.profile,
+    members_image: [
+      image.profile.profile,
+      image.profile.profile,
+      image.profile.profile,
+      image.profile.profile,
+      image.profile.profile,
+      image.profile.profile,
+      image.profile.profile,
+      image.profile.profile,
+      image.profile.profile,
+      image.profile.profile,
+      image.profile.profile,
+      image.profile.profile,
+    ],
     project_icon: image.profile.profile,
     progress: 90,
   },
