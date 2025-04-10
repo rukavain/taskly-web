@@ -48,6 +48,7 @@ const LoginContent = (): JSX.Element => {
       {isSubmitting && (
         <div className="bg-gray-400/50 absolute inset-0 h-svh w-svw z-50 flex justify-center items-center text-white">
           <Image
+            unoptimized
             src="/login/spinner.gif"
             alt="loader"
             width={100}

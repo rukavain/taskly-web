@@ -2,18 +2,30 @@
 
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import Card from "@/components/reusable/Card/Card";
+import TaskCard from "@/components/reusable/Card/TaskCard";
 import image from "@/components/constants/image";
 import { StaticImageData } from "next/image";
+import Progress from "@/components/reusable/Progress/Progress";
+import ProjectCard from "@/components/reusable/Card/ProjectCard";
 
-interface DataType {
+interface TaskDataType {
   status: string;
   project_name: string;
   task_name: string;
   assignee_image: StaticImageData;
   priority: "High" | "Medium" | "Low";
 }
-const data: DataType[] = [
+
+interface ProjectDataType {
+  project_name: string;
+  deadline: string;
+  description: string;
+  members_image: StaticImageData;
+  project_icon: StaticImageData;
+  progress: number;
+}
+
+const data: TaskDataType[] = [
   {
     status: "To Do",
     project_name: "Taskly",
@@ -50,6 +62,38 @@ const data: DataType[] = [
     priority: "Low",
   },
 ];
+
+const projectData: ProjectDataType[] = [
+  {
+    project_name: "To Do",
+    deadline: "14 February 2025",
+    description:
+      "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum has been the industry",
+    members_image: image.profile.profile,
+    project_icon: image.profile.profile,
+    progress: 20,
+  },
+  {
+    project_name: "To Do",
+    deadline: "14 February 2025",
+    description:
+      "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum has been the industry",
+    members_image: image.profile.profile,
+    project_icon: image.profile.profile,
+    progress: 50,
+  },
+
+  {
+    project_name: "To Do",
+    deadline: "14 February 2025",
+    description:
+      "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum has been the industry dummy text ever since the 1500s. Lorem Ipsum has been the industry",
+    members_image: image.profile.profile,
+    project_icon: image.profile.profile,
+    progress: 90,
+  },
+];
+
 export default function Content(): JSX.Element {
   const router = useRouter();
 
@@ -67,10 +111,13 @@ export default function Content(): JSX.Element {
           <p className="text-lg">Today task</p>
         </div>
         <div className="flex gap-4 justify-start items-start w-full">
-          <Card data={data} />
+          <TaskCard data={data} />
         </div>
       </div>
-      <p>b</p>
+      <div className="w-full my-4 flex-col gap-4 flex border border-red-600">
+        <p className="text-gray-700 text-xl">Project</p>
+        <ProjectCard data={projectData} />
+      </div>
     </div>
   );
 }
