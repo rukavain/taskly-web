@@ -120,12 +120,6 @@ const projectData: ProjectDataType[] = [
       image.profile.profile,
       image.profile.profile,
       image.profile.profile,
-      image.profile.profile,
-      image.profile.profile,
-      image.profile.profile,
-      image.profile.profile,
-      image.profile.profile,
-      image.profile.profile,
     ],
     project_icon: image.profile.profile,
     progress: 20,
@@ -198,7 +192,7 @@ export default function Content(): JSX.Element {
             <DrawerTrigger className="">
               <TaskCard data={data} />
             </DrawerTrigger>
-            <DrawerContent>
+            <DrawerContent side="bottom">
               <div className="mx-auto w-full max-w-sm">
                 <DrawerHeader className="flex flex-col justify-center items-center gap-4 text-center">
                   <DrawerTitle className="text-6xl font-bold tracking-tighter">
@@ -213,7 +207,7 @@ export default function Content(): JSX.Element {
                       Assignees:
                     </p>
                     <div className="flex gap-4 min-h-min">
-                      <div className="flex w-max h-max justify-center items-center flex-col relative group transition-all delay-100 cursor-wait">
+                      <div className="flex w-max h-max justify-center items-center flex-col relative group transition-all delay-100 ">
                         <Image
                           src={image.profile.profile}
                           alt=""
@@ -222,10 +216,10 @@ export default function Content(): JSX.Element {
                           className="rounded-full"
                         ></Image>
                         <p className="py-1 px-3 text-white text-xs bg-gray-800 rounded-xl absolute hidden -top-7 group-hover:block min-w-max transition-all delay-100">
-                          TANG INAMO
+                          John Doe
                         </p>
                       </div>
-                      <div className="flex w-max h-max justify-center items-center flex-col">
+                      <div className="flex w-max h-max justify-center items-center flex-col relative group transition-all delay-100 ">
                         <Image
                           src={image.profile.profile}
                           alt=""
@@ -233,8 +227,11 @@ export default function Content(): JSX.Element {
                           height={50}
                           className="rounded-full"
                         ></Image>
+                        <p className="py-1 px-3 text-white text-xs bg-gray-800 rounded-xl absolute hidden -top-7 group-hover:block min-w-max transition-all delay-100">
+                          John Doe
+                        </p>
                       </div>
-                      <div className="flex w-max h-max justify-center items-center flex-col">
+                      <div className="flex w-max h-max justify-center items-center flex-col relative group transition-all delay-100 ">
                         <Image
                           src={image.profile.profile}
                           alt=""
@@ -242,8 +239,11 @@ export default function Content(): JSX.Element {
                           height={50}
                           className="rounded-full"
                         ></Image>
+                        <p className="py-1 px-3 text-white text-xs bg-gray-800 rounded-xl absolute hidden -top-7 group-hover:block min-w-max transition-all delay-100">
+                          John Doe
+                        </p>
                       </div>
-                      <div className="flex w-max h-max justify-center items-center flex-col">
+                      <div className="flex w-max h-max justify-center items-center flex-col relative group transition-all delay-100 ">
                         <Image
                           src={image.profile.profile}
                           alt=""
@@ -251,14 +251,43 @@ export default function Content(): JSX.Element {
                           height={50}
                           className="rounded-full"
                         ></Image>
+                        <p className="py-1 px-3 text-white text-xs bg-gray-800 rounded-xl absolute hidden -top-7 group-hover:block min-w-max transition-all delay-100">
+                          John Doe
+                        </p>
+                      </div>
+                      <div className="flex w-max h-max justify-center items-center flex-col relative group transition-all delay-100 rounded-full bg-black/50">
+                        <Image
+                          src={image.profile.profile}
+                          alt=""
+                          width={50}
+                          height={50}
+                          className="rounded-full opacity-20"
+                        ></Image>
+                        <p className="py-1 px-3 text-white text-sm rounded-xl absolute flex justify-center items-center group-hover:block min-w-max transition-all delay-100">
+                          +8
+                        </p>
+                        <div className="absolute -right-20 -top-20 delay-200 bg-gray-800 text-white text-xs hidden  flex-col justify-start p-2 rounded-md group-hover:flex min-w-max">
+                          <p>John Doe</p>
+                          <p>John Doe</p>
+                          <p>John Doe</p>
+                          <p>John Doe</p>
+                          <p>John Doe</p>
+                          <p>John Doe</p>
+                          <p>John Doe</p>
+                          <p>John Doe</p>
+                          <p>John Doe</p>
+                          <p>John Doe</p>
+                        </div>
                       </div>
                     </div>
                   </DrawerDescription>
                 </DrawerHeader>
                 <DrawerFooter>
                   <Button>Submit</Button>
-                  <DrawerClose>
-                    <Button variant="outline">Cancel</Button>
+                  <DrawerClose className="w-full border">
+                    <Button variant="outline" className="w-full">
+                      Cancel
+                    </Button>
                   </DrawerClose>
                 </DrawerFooter>
               </div>
@@ -268,7 +297,126 @@ export default function Content(): JSX.Element {
       </div>
       <div className="w-full my-4 flex-col gap-4 flex ">
         <p className="text-gray-700 text-xl">Project</p>
-        <ProjectCard data={projectData} />
+        <Drawer>
+          <DrawerTrigger className="">
+            <ProjectCard data={projectData} />
+          </DrawerTrigger>
+          <DrawerContent side="right">
+            <div className="mx-auto w-full max-w-sm">
+              <DrawerHeader className="flex flex-col justify-start items-start gap-4 text-center">
+                <DrawerTitle className="text-6xl font-bold tracking-tighter">
+                  {"Project"}
+                </DrawerTitle>
+                <DrawerDescription className="text-left mt-4">
+                  Integrate backend to the frontend for both mobile and web
+                  platforms.
+                </DrawerDescription>
+                <DrawerDescription className="text-left gap-4 flex flex-col justify-center items-center  min-w-min h-max">
+                  <p className="text-left self-start text-base font-semibold text-gray-800">
+                    Members:
+                  </p>
+                  <div className="flex flex-col gap-4 min-h-min">
+                    <div className="flex w-max h-max justify-center items-center gap-1  group transition-all delay-100 ">
+                      <Image
+                        src={image.profile.profile}
+                        alt=""
+                        width={30}
+                        height={30}
+                        className="rounded-full"
+                      ></Image>
+                      <p className="py-1 px-3 text-gray-700 font-semibold rounded-xl  min-w-max">
+                        John Doe
+                      </p>
+                      <p className="bg-gray-800 text-white py-1 px-3 text-xs rounded-full">
+                        Project leader
+                      </p>
+                    </div>
+                    <div className="flex w-max h-max justify-center items-center gap-1  group transition-all delay-100 ">
+                      <Image
+                        src={image.profile.profile}
+                        alt=""
+                        width={30}
+                        height={30}
+                        className="rounded-full"
+                      ></Image>
+                      <p className="py-1 px-3 text-gray-700 font-semibold rounded-xl  min-w-max">
+                        John Doe
+                      </p>
+                    </div>
+                    <div className="flex w-max h-max justify-center items-center gap-1  group transition-all delay-100 ">
+                      <Image
+                        src={image.profile.profile}
+                        alt=""
+                        width={30}
+                        height={30}
+                        className="rounded-full"
+                      ></Image>
+                      <p className="py-1 px-3 text-gray-700 font-semibold rounded-xl  min-w-max">
+                        John Doe
+                      </p>
+                    </div>
+                    <div className="flex w-max h-max justify-center items-center gap-1  group transition-all delay-100 ">
+                      <Image
+                        src={image.profile.profile}
+                        alt=""
+                        width={30}
+                        height={30}
+                        className="rounded-full"
+                      ></Image>
+                      <p className="py-1 px-3 text-gray-700 font-semibold rounded-xl  min-w-max">
+                        John Doe
+                      </p>
+                    </div>
+                    <div className="flex w-max h-max justify-center items-center gap-1  group transition-all delay-100 ">
+                      <Image
+                        src={image.profile.profile}
+                        alt=""
+                        width={30}
+                        height={30}
+                        className="rounded-full"
+                      ></Image>
+                      <p className="py-1 px-3 text-gray-700 font-semibold rounded-xl  min-w-max">
+                        John Doe
+                      </p>
+                    </div>
+                    <div className="flex w-max h-max justify-center items-center gap-1  group transition-all delay-100 ">
+                      <Image
+                        src={image.profile.profile}
+                        alt=""
+                        width={30}
+                        height={30}
+                        className="rounded-full"
+                      ></Image>
+                      <p className="py-1 px-3 text-gray-700 font-semibold rounded-xl  min-w-max">
+                        John Doe
+                      </p>
+                    </div>
+                    <div className="flex w-max h-max justify-center items-center gap-1  group transition-all delay-100 ">
+                      <Image
+                        src={image.profile.profile}
+                        alt=""
+                        width={30}
+                        height={30}
+                        className="rounded-full"
+                      ></Image>
+                      <p className="py-1 px-3 text-gray-700 font-semibold rounded-xl  min-w-max">
+                        John Doe
+                      </p>
+                    </div>
+                  </div>
+                </DrawerDescription>
+              </DrawerHeader>
+              <DrawerFooter>
+                <Button>Submit</Button>
+                <DrawerClose className="w-full border">
+                  <Button variant="outline" className="w-full">
+                    Cancel
+                  </Button>
+                </DrawerClose>
+              </DrawerFooter>
+            </div>
+          </DrawerContent>
+        </Drawer>
       </div>
     </div>
   );
