@@ -54,9 +54,9 @@ const Search = () => {
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
           className="absolute left-9 text-gray-500 top-1/2 transform -translate-y-1/2 lucide lucide-search-icon lucide-search"
         >
           <circle cx="11" cy="11" r="8" />
@@ -79,9 +79,9 @@ const Search = () => {
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             className="lucide lucide-bell-icon lucide-bell text-gray-700"
           >
             <path d="M10.268 21a2 2 0 0 0 3.464 0" />

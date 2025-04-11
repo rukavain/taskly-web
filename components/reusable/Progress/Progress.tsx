@@ -17,7 +17,7 @@ const Progress: React.FC<ScoreCircleProps> = ({ score, bigger = false }) => {
   };
 
   return (
-    <div className="p-2 border border-red-600 flex gap-1 justify-center items-center">
+    <div className="p-2  flex gap-1 justify-center items-center">
       <svg
         height={bigger ? "50" : "20"}
         width={bigger ? "50" : "20"}

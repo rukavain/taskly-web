@@ -2,11 +2,28 @@
 
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import TaskCard from "@/components/reusable/Card/TaskCard";
+import TaskCard from "@/components/reusable/Card/TaskCard/TaskCard";
 import image from "@/components/constants/image";
-import { StaticImageData } from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Progress from "@/components/reusable/Progress/Progress";
 import ProjectCard from "@/components/reusable/Card/ProjectCard";
+import { Button } from "@/components/ui/button";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
+import { imageConfigDefault } from "next/dist/shared/lib/image-config";
+
+// interface AvatarDataType {
+//   profilePicture: StaticImageData;
+//   name: string;
+// }
 
 interface TaskDataType {
   status: string;
@@ -24,6 +41,33 @@ interface ProjectDataType {
   project_icon: StaticImageData;
   progress: number;
 }
+
+// const avatarData: AvatarDataType[] = [
+//   {
+//     profilePicture: image.profile.profile,
+//     name: "John Doe",
+//   },
+//   {
+//     profilePicture: image.profile.profile,
+//     name: "John Doe",
+//   },
+//   {
+//     profilePicture: image.profile.profile,
+//     name: "John Doe",
+//   },
+//   {
+//     profilePicture: image.profile.profile,
+//     name: "John Doe",
+//   },
+//   {
+//     profilePicture: image.profile.profile,
+//     name: "John Doe",
+//   },
+//   {
+//     profilePicture: image.profile.profile,
+//     name: "John Doe",
+//   },
+// ];
 
 const data: TaskDataType[] = [
   {
@@ -150,10 +194,79 @@ export default function Content(): JSX.Element {
           <p className="text-lg">Today task</p>
         </div>
         <div className="flex gap-4 justify-start items-start w-full">
-          <TaskCard data={data} />
+          <Drawer>
+            <DrawerTrigger className="">
+              <TaskCard data={data} />
+            </DrawerTrigger>
+            <DrawerContent>
+              <div className="mx-auto w-full max-w-sm">
+                <DrawerHeader className="flex flex-col justify-center items-center gap-4 text-center">
+                  <DrawerTitle className="text-6xl font-bold tracking-tighter">
+                    {"Taskly"}
+                  </DrawerTitle>
+                  <DrawerDescription className="text-center">
+                    Integrate backend to the frontend for both mobile and web
+                    platforms.
+                  </DrawerDescription>
+                  <DrawerDescription className="text-center gap-4 flex flex-col justify-center items-center  min-w-min h-max">
+                    <p className="text-base font-semibold text-gray-800">
+                      Assignees:
+                    </p>
+                    <div className="flex gap-4 min-h-min">
+                      <div className="flex w-max h-max justify-center items-center flex-col relative group transition-all delay-100 cursor-wait">
+                        <Image
+                          src={image.profile.profile}
+                          alt=""
+                          width={50}
+                          height={50}
+                          className="rounded-full"
+                        ></Image>
+                        <p className="py-1 px-3 text-white text-xs bg-gray-800 rounded-xl absolute hidden -top-7 group-hover:block min-w-max transition-all delay-100">
+                          TANG INAMO
+                        </p>
+                      </div>
+                      <div className="flex w-max h-max justify-center items-center flex-col">
+                        <Image
+                          src={image.profile.profile}
+                          alt=""
+                          width={50}
+                          height={50}
+                          className="rounded-full"
+                        ></Image>
+                      </div>
+                      <div className="flex w-max h-max justify-center items-center flex-col">
+                        <Image
+                          src={image.profile.profile}
+                          alt=""
+                          width={50}
+                          height={50}
+                          className="rounded-full"
+                        ></Image>
+                      </div>
+                      <div className="flex w-max h-max justify-center items-center flex-col">
+                        <Image
+                          src={image.profile.profile}
+                          alt=""
+                          width={50}
+                          height={50}
+                          className="rounded-full"
+                        ></Image>
+                      </div>
+                    </div>
+                  </DrawerDescription>
+                </DrawerHeader>
+                <DrawerFooter>
+                  <Button>Submit</Button>
+                  <DrawerClose>
+                    <Button variant="outline">Cancel</Button>
+                  </DrawerClose>
+                </DrawerFooter>
+              </div>
+            </DrawerContent>
+          </Drawer>
         </div>
       </div>
-      <div className="w-full my-4 flex-col gap-4 flex border border-red-600">
+      <div className="w-full my-4 flex-col gap-4 flex ">
         <p className="text-gray-700 text-xl">Project</p>
         <ProjectCard data={projectData} />
       </div>
