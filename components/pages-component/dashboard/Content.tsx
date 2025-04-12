@@ -1,7 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
 import TaskCard from "@/components/reusable/Card/TaskCard/TaskCard";
 import image from "@/components/constants/image";
 import Image, { StaticImageData } from "next/image";
@@ -18,7 +16,6 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
-import { imageConfigDefault } from "next/dist/shared/lib/image-config";
 
 // interface AvatarDataType {
 //   profilePicture: StaticImageData;
@@ -172,13 +169,13 @@ const projectData: ProjectDataType[] = [
 ];
 
 export default function Content(): JSX.Element {
-  const router = useRouter();
+  // const router = useRouter();
 
-  useEffect(() => {
-    if (!localStorage.getItem("session_id")) {
-      router.push("/auth/login");
-    }
-  }, [router]);
+  // useEffect(() => {
+  //   if (!localStorage.getItem("session_id")) {
+  //     router.push("/auth/login");
+  //   }
+  // }, [router]);
 
   return (
     <div className=" w-full h-full DMSans p-3">
@@ -297,126 +294,7 @@ export default function Content(): JSX.Element {
       </div>
       <div className="w-full my-4 flex-col gap-4 flex ">
         <p className="text-gray-700 text-xl">Project</p>
-        <Drawer>
-          <DrawerTrigger className="">
-            <ProjectCard data={projectData} />
-          </DrawerTrigger>
-          <DrawerContent side="right">
-            <div className="mx-auto w-full max-w-sm">
-              <DrawerHeader className="flex flex-col justify-start items-start gap-4 text-center">
-                <DrawerTitle className="text-6xl font-bold tracking-tighter">
-                  {"Project"}
-                </DrawerTitle>
-                <DrawerDescription className="text-left mt-4">
-                  Integrate backend to the frontend for both mobile and web
-                  platforms.
-                </DrawerDescription>
-                <DrawerDescription className="text-left gap-4 flex flex-col justify-center items-center  min-w-min h-max">
-                  <p className="text-left self-start text-base font-semibold text-gray-800">
-                    Members:
-                  </p>
-                  <div className="flex flex-col gap-4 min-h-min">
-                    <div className="flex w-max h-max justify-center items-center gap-1  group transition-all delay-100 ">
-                      <Image
-                        src={image.profile.profile}
-                        alt=""
-                        width={30}
-                        height={30}
-                        className="rounded-full"
-                      ></Image>
-                      <p className="py-1 px-3 text-gray-700 font-semibold rounded-xl  min-w-max">
-                        John Doe
-                      </p>
-                      <p className="bg-gray-800 text-white py-1 px-3 text-xs rounded-full">
-                        Project leader
-                      </p>
-                    </div>
-                    <div className="flex w-max h-max justify-center items-center gap-1  group transition-all delay-100 ">
-                      <Image
-                        src={image.profile.profile}
-                        alt=""
-                        width={30}
-                        height={30}
-                        className="rounded-full"
-                      ></Image>
-                      <p className="py-1 px-3 text-gray-700 font-semibold rounded-xl  min-w-max">
-                        John Doe
-                      </p>
-                    </div>
-                    <div className="flex w-max h-max justify-center items-center gap-1  group transition-all delay-100 ">
-                      <Image
-                        src={image.profile.profile}
-                        alt=""
-                        width={30}
-                        height={30}
-                        className="rounded-full"
-                      ></Image>
-                      <p className="py-1 px-3 text-gray-700 font-semibold rounded-xl  min-w-max">
-                        John Doe
-                      </p>
-                    </div>
-                    <div className="flex w-max h-max justify-center items-center gap-1  group transition-all delay-100 ">
-                      <Image
-                        src={image.profile.profile}
-                        alt=""
-                        width={30}
-                        height={30}
-                        className="rounded-full"
-                      ></Image>
-                      <p className="py-1 px-3 text-gray-700 font-semibold rounded-xl  min-w-max">
-                        John Doe
-                      </p>
-                    </div>
-                    <div className="flex w-max h-max justify-center items-center gap-1  group transition-all delay-100 ">
-                      <Image
-                        src={image.profile.profile}
-                        alt=""
-                        width={30}
-                        height={30}
-                        className="rounded-full"
-                      ></Image>
-                      <p className="py-1 px-3 text-gray-700 font-semibold rounded-xl  min-w-max">
-                        John Doe
-                      </p>
-                    </div>
-                    <div className="flex w-max h-max justify-center items-center gap-1  group transition-all delay-100 ">
-                      <Image
-                        src={image.profile.profile}
-                        alt=""
-                        width={30}
-                        height={30}
-                        className="rounded-full"
-                      ></Image>
-                      <p className="py-1 px-3 text-gray-700 font-semibold rounded-xl  min-w-max">
-                        John Doe
-                      </p>
-                    </div>
-                    <div className="flex w-max h-max justify-center items-center gap-1  group transition-all delay-100 ">
-                      <Image
-                        src={image.profile.profile}
-                        alt=""
-                        width={30}
-                        height={30}
-                        className="rounded-full"
-                      ></Image>
-                      <p className="py-1 px-3 text-gray-700 font-semibold rounded-xl  min-w-max">
-                        John Doe
-                      </p>
-                    </div>
-                  </div>
-                </DrawerDescription>
-              </DrawerHeader>
-              <DrawerFooter>
-                <Button>Submit</Button>
-                <DrawerClose className="w-full border">
-                  <Button variant="outline" className="w-full">
-                    Cancel
-                  </Button>
-                </DrawerClose>
-              </DrawerFooter>
-            </div>
-          </DrawerContent>
-        </Drawer>
+        <ProjectCard data={projectData} />
       </div>
     </div>
   );

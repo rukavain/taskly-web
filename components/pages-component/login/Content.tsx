@@ -21,9 +21,6 @@ const LoginContent = (): JSX.Element => {
   const {
     register,
     handleSubmit,
-    watch,
-    getValues,
-    reset,
     formState: { errors, isValid, isSubmitting },
   } = useForm<Inputs>();
 
@@ -40,8 +37,6 @@ const LoginContent = (): JSX.Element => {
       console.log(error);
     }
   };
-
-  const [loading, setLoading] = useState<boolean>(false);
 
   return (
     <div className="DMSans bg-white flex justify-between items-center w-full h-full">

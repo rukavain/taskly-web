@@ -16,6 +16,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { useToast } from "@/hooks/use-toast";
+import { Switch } from "@/components/ui/switch";
 
 const Search = () => {
   const { toast } = useToast();
@@ -71,6 +72,7 @@ const Search = () => {
         />
       </div>
       <div className="flex justify-center items-center gap-4 ">
+        <Switch />
         <div className="relative cursor-pointer group">
           <svg
             xmlns="http://www.w3.org/2000/svg"
