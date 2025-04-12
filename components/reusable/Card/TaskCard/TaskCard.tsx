@@ -10,7 +10,7 @@ interface DataType {
   priority: "High" | "Medium" | "Low";
 }
 
-const Card: React.FC<{ data: DataType[] }> = ({ data }) => {
+const TaskCard: React.FC<{ data: DataType[] }> = ({ data }) => {
   return (
     <div className="flex gap-4 w-full">
       {data.map((item, index) => (
@@ -44,4 +44,4 @@ const Card: React.FC<{ data: DataType[] }> = ({ data }) => {
   );
 };
 
-export default Card;
+export default TaskCard;
