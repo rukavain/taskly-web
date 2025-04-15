@@ -93,7 +93,7 @@ const ProjectCard: React.FC<{ data: ProjectDataType[] }> = ({ data }) => {
       {data &&
         data.map((item, key) => (
           <Drawer>
-            <DrawerTrigger className="border border-red-700">
+            <DrawerTrigger className="">
               <div
                 key={key}
                 className="flex flex-col justify-start items-start border-2 rounded-md py-4 px-2 border-gray-300 shadow-md w-full max-w-xs bg-white"
