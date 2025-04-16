@@ -21,6 +21,7 @@ import { Switch } from "@/components/ui/switch";
 const Search = () => {
   const { toast } = useToast();
   const router = useRouter();
+  const [showNotifications, setShowNotifications] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const toggleMenu = () => {
     setShowMenu((prev) => !prev);
@@ -73,33 +74,93 @@ const Search = () => {
       </div>
       <div className="flex justify-center items-center gap-4 ">
         <Switch />
-        <div className="relative cursor-pointer group">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="lucide lucide-bell-icon lucide-bell text-gray-700"
-          >
-            <path d="M10.268 21a2 2 0 0 0 3.464 0" />
-            <path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326" />
-          </svg>
+
+        <div
+          className="relative cursor-pointer"
+          onClick={() => setShowNotifications(!showNotifications)}
+        >
+          <div className="bg-white p-1 rounded-full shadow">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className={`${
+                showNotifications && "fill-blue-600"
+              }lucide lucide-bell-icon lucide-bell text-gray-900 `}
+            >
+              <path d="M10.268 21a2 2 0 0 0 3.464 0" />
+              <path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326" />
+            </svg>
+          </div>
           <p className="text-blue-600 font-extrabold text-4xl absolute bottom-3 right-1">
             .
           </p>
-          <p className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-gray-200 text-xs absolute top-7 bg-gray-500 rounded-lg py-1 px-2 z-20">
-            Tooltip
-          </p>
+          {showNotifications && (
+            <div className="absolute mt-2 right-1 text-gray-200 rounded-l-xl flex flex-col justify-start items-start gap-2 min-w-80 rounded-b-xl bg-gray-800  py-5 px-4 z-20">
+              <p className="text-xl font-semibold">Notifications</p>
+              <div className="justify-self-start text-left flex justify-start items-center gap-3 w-full ">
+                <p className="text-left font-bold py-1 px-4 rounded-md bg-gray-300 text-gray-900">
+                  All
+                </p>
+                <p className="text-left">Unread</p>
+              </div>
+              <div className="w-full  flex flex-col justify-start items-start">
+                <div className="w-full flex justify-center items-center gap-6 mb-2 hover:bg-gray-700 transition-all p-1 rounded-md">
+                  <div className="rounded-full p-2">
+                    <Image
+                      src="/placeholders/profile-icon.png"
+                      alt="Profile Icon"
+                      width={40}
+                      height={40}
+                      className="rounded-full cursor-pointer min-w-max"
+                    />
+                  </div>
+                  <p className="w-full text-sm">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                  </p>
+                  <p className="text-gray-400 text-xs">22h</p>
+                </div>
+                <div className="w-full flex justify-center items-center gap-6 mb-2 hover:bg-gray-700 transition-all p-1 rounded-md">
+                  <div className="rounded-full p-2">
+                    <Image
+                      src="/placeholders/profile-icon.png"
+                      alt="Profile Icon"
+                      width={40}
+                      height={40}
+                      className="rounded-full cursor-pointer min-w-max"
+                    />
+                  </div>
+                  <p className="w-full text-sm">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                  </p>
+                  <p className="text-gray-400 text-xs">22h</p>
+                </div>
+                <div className="w-full flex justify-center items-center gap-6 mb-2 hover:bg-gray-700 transition-all p-1 rounded-md">
+                  <div className="rounded-full p-2">
+                    <Image
+                      src="/placeholders/profile-icon.png"
+                      alt="Profile Icon"
+                      width={40}
+                      height={40}
+                      className="rounded-full cursor-pointer min-w-max"
+                    />
+                  </div>
+                  <p className="w-full text-sm">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                  </p>
+                  <p className="text-gray-400 text-xs">22h</p>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
-        <div
-          className="flex relative justify-start items-center h-full gap-2 cursor-pointer bg-white shadow-sm rounded-xl p-2"
-          onClick={toggleMenu}
-        >
+        <div className="relative cursor-pointer" onClick={toggleMenu}>
           <div className="rounded-full ">
             <Image
               src="/placeholders/profile-icon.png"
@@ -109,12 +170,8 @@ const Search = () => {
               height={38}
             />
           </div>
-          <div className="flex flex-col justify-start items-start h-full ">
-            <p className="text-sm font-semibold">Lmao Hahaha</p>
-            <p className="text-gray-500 text-xs">Project Leader</p>
-          </div>
           <div
-            className={`flex flex-col justify-start items-start gap-1 absolute text-sm py-2 px-4 top-16 left-0 w-full text-left opacity-0  text-gray-700 bg-white border border-gray-300 rounded-md shadow-md transition-opacity duration-200 ${
+            className={`flex flex-col justify-start items-start gap-1 absolute text-sm py-2 px-4 top-12 right-2 min-w-max w-full text-left opacity-0  text-gray-700 bg-white border border-gray-300 rounded-md shadow-md transition-opacity duration-200 ${
               showMenu ? "opacity-100" : "opacity-0 pointer-events-none"
             }`}
           >
